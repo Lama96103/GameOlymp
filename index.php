@@ -41,63 +41,50 @@
     
     <div style="margin: 10px 0 0 0">
         <div class="container-fluid">
-          <div class="row">
-            <div class="col col-md-2">
-                <div class="jumbotron">
-                  <div class="container">
-                    <h1 class="display-2">Left</h1>
-                    <p class="lead">This is a modified jumbotron that occupies the entire horizontal space of its parent.</p>
-                  </div>
+            <div class="row">
+                <!-- Left -->
+                <div class="col col-md-2">
+                    <div class="jumbotron">
+                        <div class="container">
+                            <h1 class="display-6">About us</h1>
+                            <!-- AddInfo -->
+                        </div>
+                    </div>
                 </div>
-            </div>
+                <!-- Middle -->
                 <div class="col col-md-8">
                     <div class="jumbotron ">
                         <div class="container" style="padding: 0 0 0 0">
-                            <h1 class="display-4">News</h1>
-                            <ul class="list-group " >
-                                <li class="list-group-item list-group-item-dark">
-                                    <p>Hier gibts was Neues</p>
-                                </li>
-                                <li class="list-group-item list-group-item-dark">
-                                     <p>Das ist ja toll</p>
-                                </li>
-                                <li class="list-group-item list-group-item-dark">
-                                     <p>Der gewinnt gegen den</p>
-                                </li>
-                            </ul>
+                                <h1 class="display-5">News</h1>
+                                <ul class="list-group" >
+                                    <?php 
+                                        include './php/loadNews.php';
+                                    ?>
+                                </ul>
                         </div>
                     </div>
-                  </div>
+                </div>
+                <!-- Right -->
                 <div class="col col-md-2">
                     <div class="container">
                         <div class="row">
-                         <div class="jumbotron">
-                            <div class="container">
-                                <h1 class="display-4">Right UP</h1>
-                                <p class="lead">Hier steht viel unötiger Text drin</p>
+                            <div class="jumbotron">
+                                <div class="container">
+                                    <h1 class="display-6">Matches</h1>
+                                        <!-- Add Info -->
+                                </div>
                             </div>
+                        </div>
+                        <div class="row">
+                             <div class="jumbotron">
+                                <div class="container">
+                                    <h1 class="display-6">???</h1>
+                                        <!-- ADD INFO -->
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
-              
-                <div class="w-100 d-none d-md-block"></div>
-              
-                
-              
-            </div>
-            <div class="row">
-                <div class="col align-self-end">
-                        <div class="container">
-                                <div class="jumbotron">
-                                    <div class="container">
-                                        <h1 class="display-4">Right UP</h1>
-                                        <p class="lead">Hier steht viel unötiger Text drin</p>
-                                    </div>
-                                
-                            </div>
-                        </div>
-                    </div>
             </div>
         </div>
     </div>
@@ -108,7 +95,7 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
     <script src="/js/UserShow.js"></script>
     
-    <script src=""></script>
+    <script src="index.js"></script>
     
 </body>
 </html>
