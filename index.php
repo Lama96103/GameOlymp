@@ -53,16 +53,7 @@
                 </div>
                 <!-- Middle -->
                 <div class="col col-md-8">
-                    <div class="jumbotron ">
-                        <div class="container" style="padding: 0 0 0 0">
-                                <h1 class="display-5">News</h1>
-                                <ul class="list-group" >
-                                    <?php 
-                                        include './php/loadNews.php';
-                                    ?>
-                                </ul>
-                        </div>
-                    </div>
+                    <?php include ('php/loadNews.php'); ?>
                 </div>
                 <!-- Right -->
                 <div class="col col-md-2">
