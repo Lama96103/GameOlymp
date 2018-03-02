@@ -8,15 +8,15 @@ $divider = "</div><div class='col-5'>";
 $lineStart = "<li class='list-group-item bg-dark text-white'><div class='row'>";
 $lineEnd = "</div>" . "</div></li>";
 
-$sql = "SELECT * FROM website.disciplines";
+$sql = "SELECT * FROM disciplines";
 
 $result= mysqli_query($link, $sql);
 ShowHead();
 if (mysqli_num_rows($result) > 0) {
     // output data of each row
     while($row = mysqli_fetch_assoc($result)) {
-        $isEntry = CheckForEntry($playerId, $row['id']);
-        $cur = 'Player: ' . GetCurrentEntries($row['id']);
+        $isEntry = CheckForEntry($playerId, $row['id'], $link);
+        $cur = 'Player: ' . GetCurrentEntries($row['id'], $link);
         $min = ' / (min) ' . $row['min'];
         $startDate = $row['startdate'];
         $avgMin = "Avg. Duration: " . $row['avgminute'] . " min";
@@ -38,11 +38,10 @@ if (mysqli_num_rows($result) > 0) {
 
 mysqli_close($link);
 
-function CheckForEntry($playerId, $disId){
+function CheckForEntry($playerId, $disId, $link){
     $entry = 0;
-    $link = mysqli_connect('localhost', 'root', '');
 
-    $sql = "SELECT * FROM website.applylist where playerid = '" . $playerId . "' AND disid = " . $disId;
+    $sql = "SELECT * FROM applylist where playerid = '" . $playerId . "' AND disid = " . $disId;
 
     $result= mysqli_query($link, $sql);
 
@@ -53,11 +52,10 @@ function CheckForEntry($playerId, $disId){
     return $entry;
 }
 
-function GetCurrentEntries($id){
+function GetCurrentEntries($id, $link){
     $entry = 0;
-    $link = mysqli_connect('localhost', 'root', '');
 
-    $sql = "SELECT * FROM website.applylist where disid = " . $id;
+    $sql = "SELECT * FROM applylist where disid = " . $id;
 
     $result= mysqli_query($link, $sql);
 

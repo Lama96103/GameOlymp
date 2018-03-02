@@ -3,7 +3,7 @@
 include $_SERVER['DOCUMENT_ROOT']. "/php/data.php";
 $name = $_COOKIE['userID'];
 
-$sql = "SELECT * FROM website.matches where disid = 1";
+$sql = "SELECT * FROM matches where disid = 1";
 $round0;
 $result= mysqli_query($link, $sql);
 

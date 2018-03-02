@@ -2,7 +2,7 @@
     $servername = "localhost";
     $username = "root";
     $password = "";
-    $dbname = "website";   
+    $dbname = "gameolymp";   
 
     // Create connection
     $link = mysqli_connect($servername, $username, $password, $dbname);

@@ -3,7 +3,7 @@ include ('data.php');
 
 $playerId = $_COOKIE['userID'];
 
-$sql = "SELECT * FROM website.applylist where playerid = " . $playerId;
+$sql = "SELECT * FROM applylist where playerid = " . $playerId;
 
 $result= mysqli_query($link, $sql);
 
