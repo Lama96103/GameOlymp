@@ -1,7 +1,7 @@
 <?php
     include 'data.php';
     $name = $_COOKIE['userID'];
-    $sql = "SELECT * FROM website.matches";
+    $sql = "SELECT * FROM matches";
 
     $result= mysqli_query($link, $sql);
 
@@ -44,7 +44,7 @@
                 }
                 echo "</li>";
             }
-            
+
 
         }
     } else {
