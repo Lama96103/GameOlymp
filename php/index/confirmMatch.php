@@ -4,7 +4,7 @@ include $_SERVER['DOCUMENT_ROOT']. "/php/data.php";
 
 $matchId = $_POST['matchId'];
 
-$sql = "UPDATE matches SET  confirmed='1' WHERE id=" . $matchId;
+$sql = "UPDATE matches SET  confirmed=1 WHERE id=" . $matchId;
 $result= mysqli_query($link, $sql);
 
 SetForNewRound($link, $matchId);
@@ -17,7 +17,7 @@ if (!$result) {
 
 function SetForNewRound($link, $id){
     $sql =  "SELECT * FROM matches where id=" . $id;
-    
+
     $result = mysqli_query($link, $sql);
 
     if (mysqli_num_rows($result) > 0) {

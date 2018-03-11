@@ -21,7 +21,7 @@ if (mysqli_num_rows($result) > 0) {
         }else{
             echo "<option value='" .  $row['id'] . "'>" . $row["name"] . $cur . $min .  "</li>";
         }
-        
+
     }
 } else {
     echo "THERE MIGHT BE NONE" . mysqli_error($link);
@@ -32,21 +32,21 @@ mysqli_close($link);
 function CheckForEntry($playID, $id, $link){
     $entry = 0;
 
-    $sql = "SELECT * FROM website.applylist where playerid = '" . $playID . "' AND disid = " . $id;
+    $sql = "SELECT * FROM applylist where playerid = '" . $playID . "' AND disid = " . $id;
 
     $result= mysqli_query($link, $sql);
 
     if (mysqli_num_rows($result) > 0) {
         $entry = 1;
     }
-    
+
     return $entry;
 }
 
 function GetCurrentEntries($id, $link){
     $entry = 0;
 
-    $sql = "SELECT * FROM website.applylist where disid = " . $id;
+    $sql = "SELECT * FROM applylist where disid = " . $id;
 
     $result= mysqli_query($link, $sql);
 
@@ -55,8 +55,7 @@ function GetCurrentEntries($id, $link){
             $entry += 1;
         }
     }
-    
+
     return $entry;
 }
 ?>
-

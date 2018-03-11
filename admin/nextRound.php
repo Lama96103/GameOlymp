@@ -26,7 +26,7 @@ if(count($playerId) < 2){
     mysqli_query($link, $addSP);
     $delM = "DELETE FROM matches where disid=' . $disID .'";
     mysqli_query($link, $delM);
-    $delN = "DELETE FROM nextround where disid=' . $disID .'";
+    $delN = "DELETE FRgizOM nextround where disid=' . $disID .'";
     mysqli_query($link, $delN);
     $delN = "UPDATE disciplines SET isrunning=0 where id=' . $disID .'";
     mysqli_query($link, $delN);
@@ -51,7 +51,7 @@ else{
 
 function GetRound($link, $disID){
     $id = 0;
-    $sql = "SELECT round FROM website.matches where disid = " . $disID;
+    $sql = "SELECT round FROM matches where disid = " . $disID;
     $result= mysqli_query($link, $sql);
 
     if (mysqli_num_rows($result) > 0) {
