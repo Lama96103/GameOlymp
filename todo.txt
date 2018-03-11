@@ -1,0 +1,6 @@
+Add News when:
+	- Match Finished
+	- Tournament Finished
+
+Admin:
+	- Generate new Info
