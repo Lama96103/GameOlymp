@@ -4,3 +4,4 @@ Add News when:
 
 Admin:
 	- Generate new Info
+	- Show Next Round: Which Round how many, usw.
