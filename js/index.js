@@ -1,6 +1,6 @@
 $(window).on( "load", function(){
     SetBreaker();
-    $.ajax({url: "/php/loadPrivateMatch.php"}).done(function( html ) {
+    $.ajax({url: "/php/index/loadPrivateMatch.php"}).done(function( html ) {
         $("#privateMatch").append(html);
     });
 });
@@ -21,4 +21,38 @@ function SetBreaker(){
         breaker.classList.add('w-100');
         breaker2.classList.add('w-100');
     }
+}
+
+function editMatch(id){
+    document.getElementById("homeLabelModal").innerHTML = 'YOU';
+    document.getElementById("guestLabelModal").innerHTML = 'YOUR OPPONENT';
+    document.getElementById("toEditModal").value = id;
+    $('#editModal').modal('show');
+}
+
+function confirmMatch(id){
+    $.post("/php/index/confirmMatch.php",
+        {
+            matchId: id            
+    });
+    sleep(100);
+    location.reload();
+}
+
+function declineMatch(id){
+    $.post("/php/index/declineMatch.php",
+        {
+            matchId: id            
+    });
+    sleep(100);
+    location.reload();
+}
+
+function sleep(milliseconds) {
+  var start = new Date().getTime();
+  for (var i = 0; i < 1e7; i++) {
+    if ((new Date().getTime() - start) > milliseconds){
+      break;
+    }
+  }
 }

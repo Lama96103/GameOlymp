@@ -1,5 +1,5 @@
 <?php
-include ('data.php');
+include $_SERVER['DOCUMENT_ROOT']. "/php/data.php";
 
 $playerId = $_COOKIE['userID'];
 
@@ -19,7 +19,7 @@ if (mysqli_num_rows($result) > 0) {
         
     }
 } else {
-    echo "<li class='list-group-item'>You didn't sign into a discipline yet</li>" . mysqli_error($link);
+    echo "<li class='list-group-item bg-dark text-white'>You didn't sign into a discipline yet</li>" . mysqli_error($link);
 }
 
 mysqli_close($link);

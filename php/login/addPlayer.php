@@ -1,6 +1,7 @@
 
 <?php
-include ('../data.php');
+
+include $_SERVER['DOCUMENT_ROOT']. "/php/data.php";
 
 $name = $_POST['name'];
 $pass = $_POST['pass'];
@@ -19,7 +20,7 @@ if($valid && $noDouble){
         die('Ungültige Anfrage: ' . mysqli_error($link));
     }else{
         DelKey($link, $key);
-        header('Location: http://' . $_SERVER['HTTP_HOST'] . '/site/login.php');
+        header('Location: http://' . $_SERVER['HTTP_HOST'] . '/site/login.php?error=Successfull added Account Please Log in');
     }
 }else{
     if($valid == 0){

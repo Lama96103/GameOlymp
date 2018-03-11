@@ -1,5 +1,5 @@
 <?php
-include ('data.php');
+include $_SERVER['DOCUMENT_ROOT']. "/php/data.php";
 
 $playerID = $_COOKIE['userID'];
 $disID = $_POST['disID'];

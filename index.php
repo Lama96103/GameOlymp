@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="/boot/css/bootstrap.css">
     <title>Game Olymp</title>
 </head>
 <body>
@@ -32,7 +32,7 @@
                     <a class="nav-link" href="/site/disciplines.php">Disciplines</a>
                 </li>
                 </ul>
-                <form class="form-inline my-2 my-lg-0" action="/php/login/logout.php" method="post">
+                <form class="form-inline my-2 my-lg-0" action="../php/login/logout.php" method="post">
                   <input class="form-control mr-sm-2" type="search" value="user" id="userName" placeholder="User" aria-label="User" readonly>
                   <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Logout</button>
                 </form>
@@ -57,7 +57,7 @@
                 <div id="breaker"></div>
                 <div class="col col-md-6" id="Middle" style="padding: 0 10px 15px 10px;">
                     <?php
-                        include './php/loadNewstest.php';
+                        include './php/index/loadNews.php';
                     ?>
                 </div>
                 <div id="breaker2"></div>
@@ -95,12 +95,42 @@
             <p class="lead text-light">Here will be a fantastic impressum</p>
         </nav>
     </div>
+    
+        <!-- Modal -->
+    <div class="modal fade" id="editModal" tabindex="-1" role="dialog" aria-labelledby="editModalLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Input Result</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <form action="/php/index/finishMatch.php" method="post">
+                <div class="form-group">
+                    <label for="name" id="homeLabelModal">Wieviel Punkte hast du?</label>
+                    <input type="number" class="form-control" name="home" id="editModalHome" placeholder="Points" aria-describedby="nameHelp" required="[0-9]{1}"><br>
+                </div>
+                <div class="form-group">
+                    <label for="name" id="guestLabelModal">Wieviel Punkte haste dein Gegner?</label>
+                    <input type="number" class="form-control" name="guest" id="editModalGuest" placeholder="Points" aria-describedby="nameHelp" required="[0-9]{1}"><br>
+                </div>
+                <input type="hidden" value="" name="matchId" id="toEditModal">
+                <button class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button class="btn btn-danger"  type="submit" >Edit</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
         
 
     <script src="/js/jquery-3.3.1.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <script src="/boot/popper.js"></script>
+    <script src="/boot/js/bootstrap.js"></script>
+    
     <script src="/js/UserShow.js"></script>
-    <script src="js/index.js"></script>
+    <script src="/js/index.js"></script>
 </body>
 </html>

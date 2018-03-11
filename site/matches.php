@@ -3,8 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-    <link rel="stylesheet" href="/css/tree.css">
+    <link rel="stylesheet" href="/boot/css/bootstrap.css">
     <title>Game Olymp</title>
 </head>
 <body>
@@ -37,35 +36,22 @@
         </nav>
     </div>
     
-    <div class="container-fluid bg-light" style="margin: 40px 0 0 0; padding: 25px 2px 10px 2px;">
-        <div class="row justify-content-center">
+    <div class="container-fluid bg-light" style="margin: 40px 25px 0 0; padding: 25px 15px 10px 15px;">
+        <div class="row">
             <div class="col-4 ">
-                <div class="btn-group btn-group-toggle" data-toggle="buttons" >
-                <label class="btn btn-secondary active">
-                    <input type="radio" name="options" id="option1" autocomplete="off" checked> Hearthstone
-                </label>
-                <label class="btn btn-secondary">
-                    <input type="radio" name="options" id="option2" autocomplete="off"> CS:GO
-                </label>
-                <label class="btn btn-secondary">
-                    <input type="radio" name="options" id="option3" autocomplete="off"> Radio
-                </label>
-                <label class="btn btn-secondary">
-                    <input type="radio" name="options" id="option4" autocomplete="off"> Radio
-                </label>
-                </div>
+                <form action="#">
+                    <div class="btn-group btn-group-toggle" data-toggle="buttons" id="ButtonList">
+                    
+                    </div>
+                </form>
             </div>
         </div>
     </div>
     
     
-   
-    <div style="margin: 0 0 0 0; padding: 25px 2px 10px 2px;" class="container-fluid bg-light">
-        <div class="container-fluid" id="info">
-        </div>
+    <div style="margin: 0 0 0 0; padding: 25px 2px 10px 2px;" id="info" class="container-fluid bg-light">
+        
     </div>
-    
-    <p id="test"></p>
     
     <div>
         <nav class="navbar fixed-buttom navbar-dark" style="background-color: #4A4C52;">
@@ -75,8 +61,8 @@
     </div>
         
     <script src="/js/jquery-3.3.1.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <script src="/boot/popper.js"></script>
+    <script src="/boot/js/bootstrap.js"></script>
     
     <script src="/js/UserShow.js"></script>
     <script src="/js/matches.js"></script>

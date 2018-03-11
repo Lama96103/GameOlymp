@@ -1,5 +1,5 @@
 <?php
-include ('data.php');
+include $_SERVER['DOCUMENT_ROOT']. "/php/data.php";
 
 $playerId = $_COOKIE['userID'];
 
@@ -8,7 +8,7 @@ $divider = "</div><div class='col-5'>";
 $lineStart = "<li class='list-group-item bg-dark text-white'><div class='row'>";
 $lineEnd = "</div>" . "</div></li>";
 
-$sql = "SELECT * FROM disciplines";
+$sql = "SELECT * FROM disciplines where isrunning=0";
 
 $result= mysqli_query($link, $sql);
 ShowHead();

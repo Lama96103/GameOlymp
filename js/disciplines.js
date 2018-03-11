@@ -1,8 +1,8 @@
 $(window).on( "load", function(){
-    $.ajax({url: "/php/loadDis.php"}).done(function( html ) {
+    $.ajax({url: "/php/disciplines/loadDis.php"}).done(function( html ) {
         $("#publicDis").append(html);
     });
-    $.ajax({url: "/php/loadPrivateDis.php"}).done(function( html ) {
+    $.ajax({url: "/php/disciplines/loadPrivateDis.php"}).done(function( html ) {
         $("#privateDis").append(html);
     });
     sleep(100);
@@ -12,7 +12,7 @@ $(window).on( "load", function(){
 });
 
 function AddDis(id){
-    $.post("/php/applyDis.php",
+    $.post("/php/disciplines/applyDis.php",
         {
             disID: id            
     });
@@ -21,7 +21,7 @@ function AddDis(id){
 }
 
 function RemoveDis(id){
-    $.post("/php/unapplyDis.php",
+    $.post("/php/disciplines/unapplyDis.php",
         {
             disID: id            
     });
