@@ -7,8 +7,10 @@
     <title>Game Olymp</title>
 </head>
 <body>
-    
-        
+  <?php
+      require("../php/login/auth.php");
+  ?>
+
     <div>
         <nav class="navbar navbar-expand-lg fixed-top navbar-dark bg-dark">
           <a class="navbar-brand" href="/index.php">Game Olymp</a>
@@ -35,35 +37,32 @@
             </div>
         </nav>
     </div>
-    
-    <div class="container-fluid bg-light" style="margin: 40px 25px 0 0; padding: 25px 15px 10px 15px;">
-        <div class="row">
-            <div class="col-4 ">
-                <form action="#">
-                    <div class="btn-group btn-group-toggle" data-toggle="buttons" id="ButtonList">
-                    
-                    </div>
+
+    <div class="bg-light" style="margin: 40px 0 0 0; padding: 25px 15px 10px 15px;">
+
+                <form action="#" >
+                      <div  id="ButtonList">
+                      </div>
                 </form>
-            </div>
-        </div>
+
     </div>
-    
-    
-    <div style="margin: 0 0 0 0; padding: 25px 2px 10px 2px;" id="info" class="container-fluid bg-light">
-        
+
+
+    <div style="margin: 0 0 0 0; padding: 25px 15px 10px 15px;" id="info" class="container-fluid bg-light">
+
     </div>
-    
+
     <div>
         <nav class="navbar fixed-buttom navbar-dark" style="background-color: #4A4C52;">
             <a class="navbar-brand" href="/index.php">Game Olymp</a>
-            <p class="lead text-light">Here will be a fantastic impressum</p>
+            <p class="lead text-light" style="font-size: 1rem;"><?php echo $impressum ?></p>
         </nav>
     </div>
-        
+
     <script src="/js/jquery-3.3.1.min.js"></script>
     <script src="/boot/popper.js"></script>
     <script src="/boot/js/bootstrap.js"></script>
-    
+
     <script src="/js/UserShow.js"></script>
     <script src="/js/matches.js"></script>
 </body>

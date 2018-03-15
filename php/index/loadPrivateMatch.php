@@ -2,6 +2,7 @@
 include $_SERVER['DOCUMENT_ROOT']. "/php/data.php";
 $name = $_COOKIE['userID'];
 $sql = "SELECT * FROM matches";
+$noMatch = true;
 
 $result= mysqli_query($link, $sql);
 
@@ -19,11 +20,12 @@ if (mysqli_num_rows($result) > 0) {
         $home = GetPlayerName($row["hostid"], $link);
         $guest = GetPlayerName($row["guestid"], $link);
         $dis = GetDisName($row["disid"], $link);
+        $active = CheckActiveMatch($link, $row['tourid']);
         if($guest == -1){
             $guest = "Freilos";
         }
 
-        if($row["hostid"] == $name){
+        if($row["hostid"] == $name && $active){
             echo "<li class='list-group-item'>";
             if($row['played'] == 0){
                 $editBt = '<a id="' . $row["id"]  . 'EBT" class="btn btn-success btn-sm" onClick="editMatch(' . $row["id"] . ')" >End</a>';
@@ -32,7 +34,9 @@ if (mysqli_num_rows($result) > 0) {
                 echo $home . " vs " . $guest . " in " . $dis . ": " .  $gameStatus;
             }
             echo "</li>";
-        }else if($row["guestid"] == $name){
+            $noMatch = false;
+        }else if($row["guestid"] == $name && $active){
+            $noMatch = false;
             echo "<li class='list-group-item'>";
             if($row['confirmed'] == 0 && $row['played'] == 1){
                 $confBt = '<a id="' . $row["id"]  . 'EBT" class="btn btn-success" onClick="confirmMatch(' . $row["id"] . ')" >Confirm</a>';
@@ -44,11 +48,27 @@ if (mysqli_num_rows($result) > 0) {
             }
             echo "</li>";
         }
+      }
+}
+
+if($noMatch){
+  echo "<p class='text-white'> Sorry, you don't have any Match at the moment. Please participate in a Discipline</p>";
+}
 
 
+function CheckActiveMatch($link, $tourID){
+    $sql = "SELECT finished FROM tournaments WHERE id=" . $tourID;
+    $result = mysqli_query($link, $sql);
+    if(!$result){
+        return true;
+    }else{
+        $row = mysqli_fetch_row($result);
+        if($row[0] == 0){
+            return true;
+        }else{
+          return false;
+        }
     }
-} else {
-    echo '<p class="text-white">You might have forgotten them or there aren´t any</p>';
 }
 
 ?>

@@ -7,12 +7,12 @@
     <title>Game Olymp</title>
 </head>
 <body>
-    
-    <?php 
+
+    <?php
         require("../php/login/auth.php");
     ?>
-    
-        
+
+
     <div>
         <nav class="navbar navbar-expand-lg fixed-top navbar-dark bg-dark">
           <a class="navbar-brand" href="/index.php">Game Olymp</a>
@@ -39,22 +39,22 @@
             </div>
         </nav>
     </div>
-    
+
     <div style="margin: 20px 0 0 0; padding: 25px 2px 10px 2px;" class="container-fluid bg-light">
         <h1 class="h1">Nope, not ready yet</h1>
     </div>
-    
+
     <div>
         <nav class="navbar fixed-buttom navbar-dark" style="background-color: #4A4C52;">
           <a class="navbar-brand" href="/index.php">Game Olymp</a>
-            <p class="lead text-light">Here will be a fantastic impressum</p>
+            <p class="lead text-light"><?php echo $impressum ?></p>
         </nav>
     </div>
 
     <script src="/js/jquery-3.3.1.min.js"></script>
     <script src="/boot/popper.js"></script>
     <script src="/boot/js/bootstrap.js"></script>
-    
+
     <script src="/js/UserShow.js"></script>
     <script src=""></script>
 </body>

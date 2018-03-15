@@ -25,17 +25,25 @@ function SetForNewRound($link, $id){
         while($row = mysqli_fetch_assoc($result)) {
             $home = $row['pointshost'];
             $guest = $row['pointsguest'];
+            $points =  CalcPoints($row['round']);
             if($home > $guest){
                 $eintrag = "INSERT INTO nextround (`playerid`, `gameid`) VALUES ('". $row['hostid'] ."', ". $row['disid'] .")";
+                $playerPoints = "UPDATE player SET seasonpoints=seasonpoints+". $points . " WHERE id=" . $row['guestid'];
             }else if($home < $guest){
                 $eintrag = "INSERT INTO nextround (`playerid`, `gameid`) VALUES ('". $row['guestid'] ."', ". $row['disid'] .")";
+                $playerPoints = "UPDATE player SET seasonpoints=seasonpoints+". $points . " WHERE id=" . $row['hostid'];
             }
             mysqli_query($link, $eintrag);
             if (!$eintrag) {
                 die('Fehler: ' . mysqli_error($link));
             }
+            mysqli_query($link, $playerPoints);
         }
     }
+}
+
+function CalcPoints($round){
+  return pow(2, $round);
 }
 
 ?>

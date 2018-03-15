@@ -12,16 +12,19 @@ $(window).on( "load", function(){
             $("#info").append(html);
         });
     }else{
-        
+
     }
     });
-    
+
 });
 
 function SetActiveButton(id){
     var element = document.getElementById(id + "L");
-    element.classList.add("active");
-    
+    if(element != null){
+
+      element.classList.add("active");
+    }
+
 }
 
 function GetDisId(){
@@ -35,7 +38,7 @@ function GetDisId(){
             break;
         }
     }
-} 
+}
 
 function RadioClick(id){
     setCookie('8aksdfh', id, 150);
