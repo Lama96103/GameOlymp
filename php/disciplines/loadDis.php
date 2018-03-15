@@ -36,7 +36,7 @@ if (mysqli_num_rows($result) > 0) {
             $editBt = ' </div><div class="col-3" style="padding: 0 10px 0 2px"><button id="' . $row["id"]  . 'P"
                         class="btn btn-success float-right" onClick="AddDis(' . $row["id"]  . ')"
                         data-toggle="tooltip" data-placement="left" title="' . $avgMin . '" disabled>Join</button>';
-            $info = '</div><div class="col-2 style="padding: 0 2px 0 2px""><p>Taking part</p>';
+            $info = '</div><div class="col-2" style="padding: 0 2px 0 2px"><p>Taking part</p>';
         }
         $toEcho = $lineStart . $middle . $info . $editBt . $lineEnd;
 
