@@ -34,9 +34,6 @@ function SetForNewRound($link, $id){
                 $playerPoints = "UPDATE player SET seasonpoints=seasonpoints+". $points . " WHERE id=" . $row['hostid'];
             }
             mysqli_query($link, $eintrag);
-            if (!$eintrag) {
-                die('Fehler: ' . mysqli_error($link));
-            }
             mysqli_query($link, $playerPoints);
         }
     }

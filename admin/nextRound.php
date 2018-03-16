@@ -22,12 +22,15 @@ if (mysqli_num_rows($result) > 0) {
 
 $tourID = GetTourID($link, $disID);
 
-$round = GetRound($link, $disID, $tourID);
+$round = GetCurrentRound($link, $disID, $tourID);
 
 if(count($playerId) < 2){
     echo 'Finished';
+    echo "<br>Round: " . $round;
+    echo "<br>Winner: " . GetPlayerName($playerId[0], $link);
     $lastRound = 1;
-    $points = GetWinPoints($round-1);
+    $points = GetWinPoints($round);
+    echo "<br>Points:" . $points;
     // Add Seasonpoints to winner;
     $addSP = "UPDATE player SET seasonpoints=seasonpoints+".$points." WHERE id=" . $playerId[0];
     mysqli_query($link, $addSP);
@@ -40,12 +43,14 @@ if(count($playerId) < 2){
     // Set Tournament as Finished
     $endTour = "UPDATE tournaments SET finished=1 where id=" . $tourID;
     mysqli_query($link, $endTour);
-    NewsForWinner($link, $disID, GetPlayerName($link, $playerId[0]), $tourID);
+    NewsForWinner($link, $disID, GetPlayerName($playerId[0], $link), $tourID);
 }
 else{
-    echo "Mehr als zwei";
+    echo "Not Finished";
+    $round = $round + 1;
+    echo "<br>Round: " . $round;
     for($i = 0; $i < count($playerId); $i+=2){
-        echo $playerId[$i] . " vs " . $playerId[$i+1];
+        echo GetPlayerName($playerId[$i], $link) . " vs " . GetPlayerName($playerId[$i+1], $link);
         echo "<br>";
         $query = "INSERT INTO matches ( `hostid`, `guestid`, `disid`, `round`, `expiredate`, `tourid`)
                   VALUES (" . $playerId[$i] . ", " . $playerId[$i+1] . ", " . $disID . ", " . $round . ", '".$expire."', ".$tourID.")";
@@ -74,22 +79,11 @@ function GetTourID($link, $disID){
     return $id;
 }
 
-function GetRound($link, $disID, $tourID){
-    $id = 0;
-    $sql = "SELECT round FROM matches where disid = " . $disID . "AND tourid = ". $tourID;
+function GetCurrentRound($link, $disID, $tourID){
+    $sql = "SELECT round FROM matches where disid = ".$disID." AND tourid = ".$tourID." ORDER BY round DESC";
     $result = mysqli_query($link, $sql);
-
-    if (mysqli_num_rows($result) > 0) {
-        // output data of each row
-        while($row = mysqli_fetch_assoc($result)) {
-            if( $id < $row["round"]){
-                $id = $row["round"];
-            }
-        }
-    }
-
-    $id = $id + 1;
-    return $id;
+    $row = mysqli_fetch_row($result);
+    return $row[0];
 }
 
 function NewsForNextRound($link, $disID, $round, $tourID){
@@ -109,7 +103,6 @@ function NewsForWinner($link, $disID, $winner, $tourID){
 }
 
 function GetWinPoints($round){
-    if($round < 1)
     return pow(2, $round);
 }
 
